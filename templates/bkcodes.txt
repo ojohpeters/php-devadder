@@ -1,0 +1,63 @@
+<?php 
+session_start();
+//superglobal allows us to access a veriable wherever we are in a proram irrespective of the scope(local, class scopes etc )
+if ($_SERVER["REQUEST_METHOD"] === "POST"){
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $password = $_POST['password'];
+
+    $data = array( 
+    "name"=>$name,
+    "email"=> $email,
+    "phone"=> $phone,
+    "password" => $password,
+
+);
+
+if (isset($_SERVER['Devs_array'])){
+    $_SESSION['Devs_array'][] = $data;
+}
+else{
+    $_SESSION['Devs_array'] = $data;
+}
+header('Location: class2.php');
+}
+else{
+    header("Location: forms.php");
+}
+
+
+
+$back_end_developers = [
+    $dev1 = [
+        "id" => 1,
+        "name" => "Jesse",
+        "email" => "Jesse@gmail.com",
+        "phone" => "09017309870",
+    ],
+    $dev2 = [
+        "id" => 2,
+        "name" => "nancy",
+        "email" => "nancy@gmail.com",
+        "phone" => "08060669327",
+    ],
+    $dev3 = [
+        "id" => 3,
+        "name" => "joe",
+        "email" => "joe@gmail.com",
+        "phone" => "08153304439",
+    ],
+    $dev3 = [
+        "id" => 4,
+        "name" => "peters",
+        "email" => "peters@gmail.com",
+        "phone" => "09017309870",
+    ],
+    $dev3 = [
+        "id" => 5,
+        "name" => "peters",
+        "email" => "peters@gmail.com",
+        "phone" => "09017309870",
+    ],
+    ];
